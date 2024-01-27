@@ -2,6 +2,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+<<<<<<< Updated upstream
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,15 +13,34 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+=======
+import org.testng.Assert;
+>>>>>>> Stashed changes
 import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.time.Duration;
+<<<<<<< Updated upstream
 import java.util.concurrent.TimeUnit;
+=======
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+>>>>>>> Stashed changes
+
+public class WebDriverSetup {
+    public static WebDriver initializeChromeDriver() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        return new ChromeDriver();
+    }
+}
+
+
+}
 public class BaseTest {
 
+<<<<<<< Updated upstream
     //Data Providers
     @DataProvider(name="InvalidLoginData")
     public static Object[][] getDataFromDataProviders(){
@@ -41,12 +61,26 @@ public class BaseTest {
 
     public Actions actions;
 
+=======
+    @DataProvider(name = "InvalidLoginData")
+    //Data Providers
+    //Name is getdatafromdataproviders, and return type is Object[][]
+    public Object[][] getDataFromDataProviders() {
+        return new Object[][] {
+                {"Invladi@mail.com","InvalidPassword"},
+                {"@demo@class.com",""},
+                {"","te$tudent"},
+                {"",""}
+        };
+    }
+>>>>>>> Stashed changes
     @BeforeSuite
     static void setupClass() {
         //WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
     }
 
+<<<<<<< Updated upstream
     @Parameters({"BaseUrl"})
     @BeforeMethod
     public void launchBrowser(String BaseUrl) throws MalformedURLException {
@@ -144,4 +178,32 @@ public class BaseTest {
         }
     }
 
+=======
+@Parameters({"BaseUrl"})
+@BeforeMethod
+public void launchBrowser(String BaseUrl) {
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--remote-allow-origins=*");
+    driver = new ChromeDriver(options);
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(16));
+    driver.manage().window().maximize();
+    //Navigate to the URL somehow.
+    String url = BaseUrl;
+    navigateToUrl(url);
+
+    @Parameters({"BaseUrl")
+    @Test
+    public void navigateToKoelApp(String BaseUrl) {
+        navigatetoUrl(BaseUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+        driver.quit();
+    }
+
+
+    public void givenUrl(String BaseUrl);
+
+    public void navigateToUrl(String givenUrl) {
+        driver.get(givenUrl);
+    }
+>>>>>>> Stashed changes
 }

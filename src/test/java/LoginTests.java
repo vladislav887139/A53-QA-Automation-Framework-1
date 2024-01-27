@@ -8,12 +8,18 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
+<<<<<<< Updated upstream
 
 
     @Test
     public void loginValidEmailPassword() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
+=======
+    @Test(dataProvider = "InvalidLoginData")
+    //@Parameters({"BaseUrl"})
+    public void ParameterizedTest(String BigBoy) throws InterruptedException;
+>>>>>>> Stashed changes
 
         loginPage.provideEmail("demo@class.com");
         loginPage.providePassword("te$t$tudent");

@@ -6,6 +6,10 @@
     <parameter name="BaseUrl" value="https://qa.koel.app"/>
 
     <test name="Example Test" preserve-order="false">
+<<<<<<< Updated upstream
+=======
+        <parameter name="BaseUrl" value="https://qa.koel.app"/>
+>>>>>>> Stashed changes
         <classes>
             <class name="LoginTests"/>
             <!--<class name="BaseTest"/>
@@ -16,4 +20,19 @@
             <class name="ProfileTest"/>-->
         </classes>
     </test>
+    <test name="Homework18Test">
+        <classes>
+            <class name="Homework18"/>
+        </classes>
+    </test>
+</suite>
+
+        <!-- testng.xml -->
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Homework18Suite">
+<test name="Homework18Test">
+    <classes>
+        <class name="Homework18"/>
+    </classes>
+</test>
 </suite>

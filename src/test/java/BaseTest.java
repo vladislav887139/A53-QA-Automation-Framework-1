@@ -21,17 +21,6 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    //Data Providers
-    @DataProvider(name="InvalidLoginData")
-    public static Object[][] getDataFromDataProviders(){
-        return new Object[][] {
-                {"invalid@mail.com", "invalidPassword"},
-                {"demo@class.com", ""},
-                {"", "te$t$tudent"},
-                {"",""}
-        };
-    }
-
     public WebDriver driver;
     public WebDriverWait wait;
 

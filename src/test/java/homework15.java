@@ -7,24 +7,21 @@ import java.time.Duration;
 
 public class Homework15 extends BaseTest {
 
-    @Parameters({"BaseUrl"})
-    @Test
-    public void loginToTestPro(String baseUrl) throws InterruptedException {
-        // Set up Chrome options
+    public void LoginToKoel() throws InterruptedException {
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
-        // Initialize WebDriver
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        // Navigate to the new URL
-        driver.get(baseUrl);
+        //steps
+        String url = "https://qa.koel.app/";
+        driver.get(url);
 
-        // Pause for 2 seconds
-        Thread.sleep(2000);
-
-        // Close the browser
-        driver.quit();
+        //Email field
+        WebElement emailField = driver.findElemnt(By.cssSelector("input[type='email']"));
+        emailField.clear();
+        emailField.sendKeys("demo@class.com");
     }
 }

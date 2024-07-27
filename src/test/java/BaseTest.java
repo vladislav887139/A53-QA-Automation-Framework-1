@@ -14,11 +14,13 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import javax.annotation.processing.SupportedAnnotationTypes;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+@SupportedAnnotationTypes()
 public class BaseTest {
 
     public WebDriver driver;
